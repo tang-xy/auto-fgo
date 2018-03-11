@@ -1,0 +1,43 @@
+{
+    "instancePath":{
+        "COST_40_FOR_QP":["pic/instance/COST_40_FOR_QP.jpg","pic/instance/COST_40_FOR_QP_NoneAp.jpg"]
+    },
+    "applePath":{
+        
+    },
+    "queue":{
+        "kongming":{
+            "picpath":"pic/kongming/kongming.jpg",
+            "skill_picpath":"pic/kongming/kongming_skill.bmp",
+            "skill1":{
+                "picpath":"pic/kongming/kongming_1.jpg",
+                "bewrite":"暂缺",
+                "name":"鉴识眼",
+                "needgoal": true
+            },
+            "skill2":{
+                "picpath":"pic/kongming/kongming_2.jpg",
+                "bewrite":"暂缺",
+                "name":"军师的忠言",
+                "needgoal": true
+            },
+            "skill3":{
+                "picpath":"pic/kongming/kongming_3.jpg",
+                "bewrite":"暂缺",
+                "name":"军师的指挥",
+                "needgoal": true
+            }
+        }
+    },
+    "screen":{
+        "size":[1920,1080],
+        "skill_goal1":[500,710],
+        "skill_goal2":[976,688],
+        "skill_goal3":[1423,698],
+        "skill_delta1":[50,50],
+        "skill_delta2":[200,50],
+        "skill_delta3":[335,50]
+    }
+}
+
+
