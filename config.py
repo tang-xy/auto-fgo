@@ -21,16 +21,26 @@ except KeyError:
     exit(-2)
 
 def getinstancepath(instanceName):
-    res = dic['instancePath'][instanceName]
-    return res
+    try:
+        res = dic['instancePath'][instanceName]
+        return res
+    except KeyError:
+        print("Configfile Error")
+
 
 def getapplepath(appleName):
-    res = dic['applePath'][appleName]
-    return res
+    try:
+        res = dic['applePath'][appleName]
+        return res
+    except KeyError:
+        print("Configfile Error")
 
-def loadqueue():
-    res = dic['queue']
-    return res
+def getqueue():
+    try:
+        res = dic['queue']
+        return res
+    except KeyError:
+        print("Configfile Error")
 
 if __name__ == "__main__":
         pass

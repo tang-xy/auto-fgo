@@ -2,11 +2,14 @@ import cv2
 import sys
 import time
 import autofgo
+
+def wait():
+    raise NotImplementedError
 def auto(fgo):
 
     fgo.inInstance(fgo.COST_40_FOR_QP)        #进入副本，由预定义宏指定，体力不足时吃苹果
     
-    fgo.selectFriend(fgo.LUNCH_KONGMING)      #选择助战好友，午餐孔明
+    fgo.selectFriend(fgo.ANY_FRIED)      #选择助战好友，午餐孔明
     
     wait()                                    #等待进入
     
@@ -51,7 +54,7 @@ def yes_or_no(prompt, true_value='y', false_value='n', default=True):
         i = input(prompt)
 
 if __name__ == "__main__":
-    op = yes_or_no('请确保手机打开了 ADB 并连接了电脑，然后打开跳一跳并【开始游戏】后再用本程序，确定开始？')
+    op = yes_or_no('请确保手机打开了 ADB 并连接了电脑，然后打开fgo要刷的本后再用本程序，确定开始？')
     if not op:
         print('bye')
         exit(0)

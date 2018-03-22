@@ -46,6 +46,12 @@ def getcoorbypic(img, template):
             return None
         else:
             return top_left
+class Noblephantas:
+    def __init__(self,dir):
+
+        self.name = dir['name']
+        self.pic = cv2.imread(dir['path'],2)
+        self.describe = dir['describe']
 
 class Skill:
     def __init____(self,skill,coordinate):
@@ -88,7 +94,7 @@ class Servant:
         self.skill3 = Skill(
             servant['skill3'],[self.coordinate[0] + config.skill_delta3[0],self.coordinate[1] + config.skill_delta3[1]]
         )
-        
+        self.noblephantas = Noblephantas(servant['noblephantas'])
 
     def useselfskill(self,num,goal = 0):
         eval('self.skill' + num).chick(goal)

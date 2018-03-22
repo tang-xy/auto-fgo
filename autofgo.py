@@ -59,7 +59,8 @@ class fgo3t_env:
         self.NO_APPLE = 0x5000
 
         self.appletype = typeApple
-        queue_dic = config.loadqueue()
+        queue_dic = config.getqueue()
+        
         self.queue = {}
         for servant in queue_dic.key():
             self.queue[servant] = Servant(queue_dic[servant])
@@ -91,7 +92,17 @@ class fgo3t_env:
         if typeApple == self.NO_APPLE:
               print("体力清空")
               exit(1)
-        applePath = config.getapplepath(typeApple)
+        if typeApple == self.GOLD_APPLE:
+
+            applePath = config.getapplepath("GOLD_APPLE")
+        elif typeApple == self.COLOUR_APPLE:
+            applePath = config.getapplepath("COLOUR_APPLE")
+        elif typeApple == self.COPPER_APPLE:
+            applePath = config.getapplepath("COPPER_APPLE")
+        elif typeApple == self.SILVER_APPLE:
+            applePath = config.getapplepath("SILVER_APPLE")
+        else:
+            raise Exception("type of apple error")
         screen = self.__getscreen()
         applePic = cv2.imread(applePath[0], 2)
         applePicNone = cv2.imread(applePath[1], 2)
@@ -108,6 +119,36 @@ class fgo3t_env:
         )
         os.system(cmd)
         time.sleep(2)
+
+    def selectFriend(self,friendName):
+        if friendName == self.ANY_FRIEND:
+            cmd = 'adb shell input tap 800 1000'
+            os.system(cmd)
+            time.sleep(1)
+
+    def getnoblephantasByname(self,name):
+        for servant in self.queue.values():
+            if servant.noblephantas.name == name:
+                return servant.noblephantas.pic
+        print("There is not such noblephanta")
+        exit(-5)
+
+    def chooseCard(self,type = "random",name = ""):
+        if type == "random":
+            raise NotImplementedError
+        if type == "noblephantas":
+            screen = self.__getscreen()
+            pic = self.getnoblephantasByname(name)
+            top_left = getcoorbypic(screen,pic)
+            cmd = 'adb shell input tap {x} {y}'.format(
+                x = top_left[0],
+                y = top_left[1]
+            )
+            os.system(cmd)
+            time.sleep(1)
+            
+    def noblephantasmTurn(self,noblephantasmName):
+        raise NotImplementedError
 
     def inInstance(self, instanceName):
         """instanceName:can be COST_40_FOR_QP or other

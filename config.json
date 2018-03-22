@@ -9,6 +9,11 @@
         "kongming":{
             "picpath":"pic/kongming/kongming.jpg",
             "skill_picpath":"pic/kongming/kongming_skill.bmp",
+            "noblephantas":{
+                "path":"pic/kongming/noblephantas.png",
+                "name":"石兵八阵",
+                "describe":"暂缺"
+            },
             "skill1":{
                 "picpath":"pic/kongming/kongming_1.jpg",
                 "bewrite":"暂缺",
